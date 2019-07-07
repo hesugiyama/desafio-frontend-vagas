@@ -1,0 +1,133 @@
+.form-group {
+  label {
+    &.title {
+    font-weight: bold;
+    }
+  }
+  margin-left: 10px;
+}
+
+.title h2 {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.form-group {
+  padding: 0px 22px;
+}
+
+.form-group textarea {
+  background: #dde3e9;
+  border: 1px solid #2f3676;
+  border-radius: 8px;
+  color: #071723;
+  height: 140px;
+  padding: 16px;
+  resize: none;
+  width: 100%;
+  font-size: 14px;
+  margin-bottom: 32px;
+}
+
+.form-check input {
+  margin-bottom: 8px;
+}
+
+
+form-check-label {
+  display: inline-block;
+  vertical-align: top;
+  padding-left: 25px;
+  position: relative;
+}
+
+input[type=checkbox] {
+  display:none;
+} 
+
+input[type=checkbox] {
+  + label:before {
+    content: "\f0c8";
+    font-family: FontAwesome;
+    color: #2f3676;
+    letter-spacing: 5px;
+    line-height: 1.5;
+    font-size: 24px;
+    position: relative;
+    vertical-align: middle;
+    bottom: 2px;
+    }
+
+    &:hover + label:before { 
+      color: #191847;
+      cursor: pointer;
+    } 
+    &.warning-checkbox {
+      + label {
+        color: #f33232;
+        &:before{
+          content: "\f0c8";
+          color: #f59393;
+        }
+      }
+    } 
+    &:checked + label:before {
+      content: "\f14a";
+    } 
+} 
+
+.my-button{
+  background-color: #2f3676;
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 5px;
+  padding-top: 4px;
+  font-size: 1.8rem;
+  color: white;
+  cursor: pointer;
+  &:hover {
+    background-color: #191847;
+  }
+}
+
+button:disabled {
+  background-color: #c5cfd6 !important;
+  &.send-button{
+    background-color: #c5cfd6 !important;
+    border: solid 2px #555555;
+    color: #555555;
+  }
+}
+
+/* Hide Up and Down arrows. */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.label-button-success {
+  position: relative;
+  vertical-align: middle;
+  top: 10px;
+  margin-right: 21%;
+  color: #5cc67d;
+  font-weight: 500;
+} 
+
+.warning-input {
+  color: #071723;
+  background-color: #f59393;
+  border: 1px solid #f33232;
+}
+
+.form-group textarea{
+  &:focus {
+    outline-color: transparent;
+  }
+}

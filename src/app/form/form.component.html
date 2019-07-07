@@ -1,0 +1,90 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+<div class="box">
+  <header>
+    <div class="header" role="banner">
+      <h1>
+        Formulário
+        <span>para compra de</span>
+        <strong>Pacote de Stickers</strong>
+      </h1>
+    </div>
+  </header>
+  <main>
+    <form [formGroup]="formSticker">
+      <div class="form-group">
+        <div class="title">
+          <h2>Quais stickers:</h2>
+        </div>
+        <div class="form-check" *ngFor="let type of types">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            [id]="'checkbox-' + type.name"
+            [value]="type.name"
+            (click)="addType(type.id)"
+            [ngClass]="{'warning-checkbox': !typeIsValide && submitted}"
+            [checked]="type.selected"
+          />
+          <label class="form-check-label" [for]="'checkbox-' + type.name">
+            {{type.name}}
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="title">
+          <h2>Quantos stickers de cada?</h2>
+        </div>
+        <div class="counter" for="input-quant">
+          <button
+            class="my-button"
+            (click)="subSticker()"
+            [disabled]="!this.formSticker.controls.quant.value"
+          >
+            <i class="fa fa-minus"></i>
+          </button>
+          <input
+            class="form-control"
+            id="input-quant"
+            type="number"
+            placeholder="0"
+            formControlName="quant"
+            [ngModel]="quantStickers"
+            [ngClass]="{'warning-input': formSticker.controls.quant.invalid && submitted}"
+          />
+          <button class="my-button" (click)="addSticker()">
+            <i class="fa fa-plus"></i>
+          </button>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="title">
+          <h2>Observações:</h2>
+        </div>
+        <textarea
+          name="descricao"
+          placeholder="Alguma dúvida? Recado?"
+          formControlName="obs"
+          [ngModel]="obs"
+        ></textarea>
+      </div>
+    </form>
+  </main>
+  <footer>
+    <div class="footer" role="contentinfo">
+      <label *ngIf="success" class="label-button-success" for="button-send">
+        Formulário enviado com sucesso!
+      </label>
+      <button
+        id="button-send"
+        class="send-button"
+        (click)="send()"
+        [disabled]="!quantStickers && !typeIsValide && !this.formSticker.controls.obs.value"
+      >
+        Enviar
+      </button>
+    </div>
+  </footer>
+</div>
